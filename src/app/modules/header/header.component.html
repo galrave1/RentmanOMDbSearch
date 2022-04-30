@@ -1,0 +1,13 @@
+<section>
+    <form (submit)="onSubmit()" novalidate>
+        <div class="row">
+            <div class="part">
+                <label for="serach">OMDB Search</label>
+            </div>
+            <div class="part">
+                <input class="form-control" name="t" [(ngModel)]="searchModel.t" placeholder="Search A Movie">
+                <button type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+</section>
