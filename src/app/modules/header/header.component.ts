@@ -1,27 +1,23 @@
-import { Component, Output, EventEmitter, OnInit, OnChanges, AfterContentInit, AfterViewInit, AfterViewChecked, Input, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { SearchModel } from '../../Models/search-model';
+import { MessageService } from 'src/app/shared/service/message.service';
+import { SearchModel } from 'src/app/Models/search-model';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   searchModel: SearchModel = new SearchModel();
-  @Output("SearchEmitter") SearchEmitter = new EventEmitter<SearchModel>();
   @ViewChild(NgForm) searchForm!: NgForm;
 
-  constructor() { }
-
-  ngOnInit(): void {
-    console.log(this.searchModel);
-
-  }
+  constructor(private messageService: MessageService) { }
 
   onSubmit() {
     if (this.searchForm.valid) {
-      this.SearchEmitter.emit(this.searchModel);
+      this.messageService.SendMessage(this.searchModel);
+      this.searchModel.s = undefined;
     } else {
       this.searchForm.form.markAllAsTouched();
     }

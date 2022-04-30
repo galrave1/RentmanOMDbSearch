@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SearchModel } from './Models/search-model';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +6,5 @@ import { SearchModel } from './Models/search-model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'RentmanOMDbSearch';
+  title = 'Rentman OMDb Search';
 }

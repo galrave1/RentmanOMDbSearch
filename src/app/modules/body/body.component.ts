@@ -1,22 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SearchModel } from '../../Models/search-model';
-
+import { Subscription } from 'rxjs';
+import { OmdbSearchResult } from 'src/app/Models/omdb-search-result';
+import { SearchModel } from 'src/app/Models/search-model';
+import { MessageService } from 'src/app/shared/service/message.service';
+import { OMDBSearchService } from './service/omdbsearch.service';
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.css']
 })
-export class BodyComponent implements OnInit {
+export class BodyComponent implements OnInit, OnDestroy {
+  subscriptions: Subscription[] = [];
 
-  constructor(private router: Router) { }
-
+  constructor(private searchService: OMDBSearchService, private messageService: MessageService, private router: Router) { }
   ngOnInit(): void {
+    this.subscriptions.push(this.messageService.GetMessage().subscribe(searchModel => {
+      this.SearchActionEmitted(searchModel);
+    }));
   }
 
   SearchActionEmitted(searchModel: SearchModel) {
-    console.log('SearchActionEmitted', searchModel);
+    this.searchService.SearchForMovies(searchModel).subscribe(data => {
+      console.log('SearchActionEmitted', data.Response, data.Response == true, data.Response === true);
+      if (data.Response === 'True')
+        this.router.navigateByUrl('/search-resulst', { state: { user: 'user', foo: 'bar' } });
+      // this.router.navigate(['/search-resulst', data])
+    });
+  }
 
-    this.router.navigateByUrl('/dynamic', { state: searchModel });
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 }
