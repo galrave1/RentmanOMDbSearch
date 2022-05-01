@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MessageService } from 'src/app/shared/service/message.service';
-import { SearchModel } from 'src/app/Models/search-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,15 +8,20 @@ import { SearchModel } from 'src/app/Models/search-model';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  searchModel: SearchModel = new SearchModel();
+  searchTerm: string  = '';
   @ViewChild(NgForm) searchForm!: NgForm;
 
-  constructor(private messageService: MessageService) { }
+  constructor(private router: Router) { }
 
   onSubmit() {
     if (this.searchForm.valid) {
-      this.messageService.SendMessage(this.searchModel);
-      // this.searchModel.s = undefined;
+      this.router.navigate(
+        ['search-movies'],
+        { queryParams: { searchTerm: this.searchTerm } }
+      ).then(()=>{
+        this.searchTerm = '';
+      });
+
     } else {
       this.searchForm.form.markAllAsTouched();
     }

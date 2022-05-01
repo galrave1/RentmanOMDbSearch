@@ -1,10 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
-import { map, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Pager } from 'src/app/interfaces/pager';
 import { Movie } from 'src/app/Models/movie';
 import { OmdbSearchResult } from 'src/app/Models/omdb-search-result';
-import { SearchModel } from 'src/app/Models/search-model';
-import { MessageService } from 'src/app/shared/service/message.service';
 import { OMDBSearchService } from '../body/service/omdbsearch.service';
 
 @Component({
@@ -13,11 +11,29 @@ import { OMDBSearchService } from '../body/service/omdbsearch.service';
   styleUrls: ['./movie-index.component.css']
 })
 export class MovieIndexComponent implements OnInit {
-  @Input() results:Array<Movie>;
+  searchResponse: boolean = true;
+  SearchResult: OmdbSearchResult = new OmdbSearchResult();
+  pager:Pager;
+
+  constructor(private route: ActivatedRoute, private router: Router, private searchService: OMDBSearchService) { }
 
   ngOnInit(): void {
-  console.log('this.results',this.results);
-  
+    console.log('MovieIndexComponent');
+
+    this.route.queryParams.subscribe(params => {
+      console.log(params["searchTerm"], params);
+      if (params === undefined || params === null || params["searchTerm"] === undefined || params["searchTerm"] === null)
+        this.router.navigate(['/home']);
+      this.SearchMovies(params["searchTerm"]);
+    });
   }
 
+  SearchMovies(searchTerm: string) {
+    this.searchService.SearchForMovies(searchTerm).subscribe(data => {
+      this.searchResponse = data.Response.toLowerCase() === 'true';
+      this.SearchResult = data;
+    });
+  }
+
+  
 }

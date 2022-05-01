@@ -5,8 +5,11 @@ import { OMDBSearchService } from './modules/body/service/omdbsearch.service';
 import { MovieIndexComponent } from './modules/movie-index/movie-index.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'Home', pathMatch: 'full' },
   { path: 'Home', component: BodyComponent },
-  { path: '**', component: BodyComponent }
+  { path: 'search-movies', component: MovieIndexComponent },
+  { path: 'Searchmovies/:searchTerm', component: MovieIndexComponent },
+  // { path: '**', component: BodyComponent }
 ];
 
 @NgModule({

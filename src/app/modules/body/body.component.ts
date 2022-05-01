@@ -10,32 +10,11 @@ import { OMDBSearchService } from './service/omdbsearch.service';
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.css']
 })
-export class BodyComponent implements OnInit, OnDestroy {
-  subscriptions: Subscription[] = [];
-  showResults: boolean = true;
-  Results:OmdbSearchResult | undefined;
+export class BodyComponent implements OnInit {
 
-  constructor(private searchService: OMDBSearchService, private messageService: MessageService, private router: Router) { }
+  constructor() { }
+
   ngOnInit(): void {
-    this.subscriptions.push(this.messageService.GetMessage().subscribe(searchModel => {
-      this.SearchActionEmitted(searchModel);
-    }));
-  }
-
-  SearchActionEmitted(searchModel: SearchModel) {
-    this.searchService.SearchForMovies(searchModel).subscribe(data => {
-      console.log('SearchActionEmitted', data);
-      
-      if(data.Response === 'True'){
-        this.Results = data;
-        this.showResults = true;
-      } else{
-        this.showResults = false;
-      }
-    });
-  }
-
-  ngOnDestroy() {
-    this.subscriptions.forEach(sub => sub.unsubscribe());
+    console.log('BodyComponent');
   }
 }

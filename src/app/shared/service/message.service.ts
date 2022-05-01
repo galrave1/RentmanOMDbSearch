@@ -6,12 +6,12 @@ import { SearchModel } from 'src/app/Models/search-model';
   providedIn: 'root'
 })
 export class MessageService {
-  private subject: Subject<SearchModel> = new Subject<SearchModel>();
+  private subject: Subject<string> = new Subject<string>();
 
-  SendMessage(SearchData: SearchModel) {
-    this.subject.next(SearchData);
+  SendMessage(searchTerm: string) {
+    this.subject.next(searchTerm);
   }
-  GetMessage(): Observable<SearchModel> {
+  GetMessage(): Observable<string> {
     return this.subject.asObservable();
   }
 }

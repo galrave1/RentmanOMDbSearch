@@ -1,0 +1,19 @@
+<div class="card">
+
+    <!-- <object data="URL_to_preferred_image.png" type="image/png">
+        <img src="URL_to_fallback_image.png" />
+    </object> -->
+
+    <img [src]="movie?.Poster" onerror="this.onerror=null; this.src='Default.jpg'" alt="{{movie?.Title}}" height="215">
+    <div class="card-title">
+        <label>{{movie?.Title}}</label>
+    </div>
+    <div class="card-bottom">
+        <label>{{movie?.Year}}</label>
+
+        <a [routerLink]="['/Show-Movie']" [queryParams]="{id: movie?.imdbID}" fragment="education">
+            link to user component
+          </a>
+
+    </div>
+</div>

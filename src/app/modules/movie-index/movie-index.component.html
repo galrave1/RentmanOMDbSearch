@@ -1,1 +1,10 @@
-<h3>Welcone To OMDB Search, search something  in the bar above!</h3>
+<section class="display-section">
+    <ng-container *ngIf="searchResponse; else showError">
+        <div class="movie-card-container">
+            <app-movie-card *ngFor="let movie of SearchResult.Search" [movie]="movie"></app-movie-card>
+        </div>
+    </ng-container>
+    <ng-template #showError>
+        <h3>{{SearchResult.Error}}</h3>
+    </ng-template>
+</section>

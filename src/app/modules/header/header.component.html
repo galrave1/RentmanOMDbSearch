@@ -5,7 +5,7 @@
                 <label for="serach">OMDB Search</label>
             </div>
             <div class="part">
-                <input class="form-control" name="s" [(ngModel)]="searchModel.s" placeholder="Search A Movie">
+                <input class="form-control" name="searchTerm" id="searchTerm" [(ngModel)]="searchTerm" placeholder="Search A Movie" required minlength="1">
                 <button type="submit">Search</button>
             </div>
         </div>
