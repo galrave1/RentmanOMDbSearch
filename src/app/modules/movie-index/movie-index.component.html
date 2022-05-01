@@ -1,7 +1,7 @@
 <section class="display-section">
     <ng-container *ngIf="searchResponse; else showError">
         <div class="movie-card-container">
-            <app-movie-card *ngFor="let movie of SearchResult.Search" [movie]="movie"></app-movie-card>
+            <app-movie-card *ngFor="let movie of pageMovies" [movie]="movie"></app-movie-card>
         </div>
     </ng-container>
     <ng-template #showError>

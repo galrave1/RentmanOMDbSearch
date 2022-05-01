@@ -9,6 +9,7 @@ import { HeaderComponent } from './modules/header/header.component';
 import { BodyComponent } from './modules/body/body.component';
 import { MovieIndexComponent } from './modules/movie-index/movie-index.component';
 import { MovieCardComponent } from './modules/movie-index/movie-card/movie-card.component';
+import { PaginationComponent } from './shared/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MovieCardComponent } from './modules/movie-index/movie-card/movie-card.
     HeaderComponent,
     BodyComponent,
     MovieIndexComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
