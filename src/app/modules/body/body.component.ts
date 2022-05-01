@@ -12,6 +12,8 @@ import { OMDBSearchService } from './service/omdbsearch.service';
 })
 export class BodyComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
+  showResults: boolean = true;
+  Results:OmdbSearchResult | undefined;
 
   constructor(private searchService: OMDBSearchService, private messageService: MessageService, private router: Router) { }
   ngOnInit(): void {
@@ -22,10 +24,14 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   SearchActionEmitted(searchModel: SearchModel) {
     this.searchService.SearchForMovies(searchModel).subscribe(data => {
-      console.log('SearchActionEmitted', data.Response, data.Response == true, data.Response === true);
-      if (data.Response === 'True')
-        this.router.navigateByUrl('/search-resulst', { state: { user: 'user', foo: 'bar' } });
-      // this.router.navigate(['/search-resulst', data])
+      console.log('SearchActionEmitted', data);
+      
+      if(data.Response === 'True'){
+        this.Results = data;
+        this.showResults = true;
+      } else{
+        this.showResults = false;
+      }
     });
   }
 

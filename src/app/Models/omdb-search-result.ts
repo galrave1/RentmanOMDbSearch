@@ -1,7 +1,7 @@
-import { Movie } from './movie';
+import {Movie} from './movie';
 
 export class OmdbSearchResult {
-    public Search: Array<Movie> | undefined;
-    public totalResults: number | undefined;
-    public Response: boolean = true;
+    public Search:Array<Movie> = new Array<Movie>();
+    public totalResults:number | undefined;
+    public Response:string | undefined;
 }

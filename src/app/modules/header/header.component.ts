@@ -17,7 +17,7 @@ export class HeaderComponent {
   onSubmit() {
     if (this.searchForm.valid) {
       this.messageService.SendMessage(this.searchModel);
-      this.searchModel.s = undefined;
+      // this.searchModel.s = undefined;
     } else {
       this.searchForm.form.markAllAsTouched();
     }

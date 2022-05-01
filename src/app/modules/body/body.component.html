@@ -1,1 +1,8 @@
-<router-outlet></router-outlet>
+<section>
+    <div *ngIf="showResults">
+        <app-movie-index [results]="Results.Search"></app-movie-index>
+    </div>
+    <div *ngIf="!showResults">
+        <h3>Movie Not Found!</h3>
+    </div>
+</section>
