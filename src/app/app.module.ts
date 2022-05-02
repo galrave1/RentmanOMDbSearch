@@ -17,6 +17,7 @@ import { BlockUIInterceptor } from './interceptors/block-ui/block-ui.interceptor
 import { HttpErrorInterceptor } from './interceptors/http-error/http-error.interceptor';
 /*imported moduls*/
 import { BlockUIModule } from 'ng-block-ui';
+import { BlockUIComponent } from './shared/block-ui/block-ui.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BlockUIModule } from 'ng-block-ui';
     MovieIndexComponent,
     MovieCardComponent,
     PaginationComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    BlockUIComponent
   ],
   imports: [
     BrowserModule,

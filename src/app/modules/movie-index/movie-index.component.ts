@@ -29,7 +29,7 @@ export class MovieIndexComponent implements OnInit {
       this.SearchResult = data;
     },
       (catchError) => {
-        alert(catchError);
+        console.log(catchError);
       });
   }
 

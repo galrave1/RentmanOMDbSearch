@@ -10,6 +10,6 @@ export class BlockUIInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const spinnerSubscription: Subscription = this.blockUIService.spinner$.subscribe();
-    return next.handle(request).pipe(delay(12000));
+    return next.handle(request);//.pipe(delay(12000));
   }
 }
