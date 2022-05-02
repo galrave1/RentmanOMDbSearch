@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { OmdbSearchResult } from 'src/app/Models/omdb-search-result';
 import { SearchModel } from 'src/app/Models/search-model';
-import { MessageService } from 'src/app/shared/service/message.service';
+import { MessageService } from 'src/app/shared/services/message.service';
 import { OMDBSearchService } from './service/omdbsearch.service';
 @Component({
   selector: 'app-body',

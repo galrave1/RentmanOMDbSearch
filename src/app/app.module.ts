@@ -10,6 +10,8 @@ import { BodyComponent } from './modules/body/body.component';
 import { MovieIndexComponent } from './modules/movie-index/movie-index.component';
 import { MovieCardComponent } from './modules/movie-index/movie-card/movie-card.component';
 import { PaginationComponent } from './shared/pagination/pagination.component';
+import { MovieDetailsComponent } from './modules/movie-details/movie-details.component';
+import { BlockUIComponent } from './shared/block-ui/block-ui.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { PaginationComponent } from './shared/pagination/pagination.component';
     BodyComponent,
     MovieIndexComponent,
     MovieCardComponent,
-    PaginationComponent
+    PaginationComponent,
+    MovieDetailsComponent,
+    BlockUIComponent
   ],
   imports: [
     BrowserModule,

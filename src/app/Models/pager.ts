@@ -8,6 +8,6 @@ export class Pager {
         this.currentPage = currentPage ?? 1;
         this.totalItems = totalItems ?? 0;
         this.pageSize = pageSize ?? 6;
-        this.maxPages = parseInt(this.totalItems/ this.totalItems);
+        this.maxPages = Math.floor(this.totalItems/ this.totalItems) + 1;
     }
 }

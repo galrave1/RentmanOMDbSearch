@@ -24,9 +24,7 @@ export class MovieIndexComponent implements OnInit {
   }
 
   SearchMovies(searchTerm: string) {
-    this.searchService.SearchForMovies(searchTerm).subscribe(data => {
-      console.log(data);
-      
+    this.searchService.SearchForMovies(searchTerm).subscribe(data => {      
       this.searchResponse = data.Response.toLowerCase() === 'true';
       this.SearchResult = data;
     });
