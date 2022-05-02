@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +11,12 @@ import { MovieIndexComponent } from './modules/movie-index/movie-index.component
 import { MovieCardComponent } from './modules/movie-index/movie-card/movie-card.component';
 import { PaginationComponent } from './shared/pagination/pagination.component';
 import { MovieDetailsComponent } from './modules/movie-details/movie-details.component';
-import { BlockUIComponent } from './shared/block-ui/block-ui.component';
+
+/*interceptors*/
+import { BlockUIInterceptor } from './interceptors/block-ui/block-ui.interceptor';
+import { HttpErrorInterceptor } from './interceptors/http-error/http-error.interceptor';
+/*imported moduls*/
+import { BlockUIModule } from 'ng-block-ui';
 
 @NgModule({
   declarations: [
@@ -21,17 +26,20 @@ import { BlockUIComponent } from './shared/block-ui/block-ui.component';
     MovieIndexComponent,
     MovieCardComponent,
     PaginationComponent,
-    MovieDetailsComponent,
-    BlockUIComponent
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BlockUIModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: BlockUIInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

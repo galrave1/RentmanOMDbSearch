@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Overlay, OverlayRef } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
 import { defer, NEVER } from 'rxjs';
 import { finalize, share } from 'rxjs/operators';
-import { BlockUIComponent } from '../block-ui/block-ui.component';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlockUIService {
-  private overlayRef: OverlayRef = undefined;
-
-  constructor(private overlay: Overlay) { }
+  // @BlockUI() blockUI: NgBlockUI;
+  constructor() {
+   
+    // this.blockUI.start('Loading...'); // Start blocking
+ 
+    // setTimeout(() => {
+    //   this.blockUI.stop(); // Stop blocking
+    // }, 2000);
+  }
   public readonly spinner$ = defer(() => {
     this.show();
     return NEVER.pipe(
@@ -21,22 +25,22 @@ export class BlockUIService {
     );
   }).pipe(share());
   public show(): void {
-    // Hack avoiding `ExpressionChangedAfterItHasBeenCheckedError` error
-    Promise.resolve(null).then(() => {
-      this.overlayRef = this.overlay.create({
-        positionStrategy: this.overlay
-          .position()
-          .global()
-          .centerHorizontally()
-          .centerVertically(),
-        hasBackdrop: true,
-      });
-      this.overlayRef.attach(new ComponentPortal(BlockUIComponent));
-    });
+    // // Hack avoiding `ExpressionChangedAfterItHasBeenCheckedError` error
+    // Promise.resolve(null).then(() => {
+    //   this.overlayRef = this.overlay.create({
+    //     positionStrategy: this.overlay
+    //       .position()
+    //       .global()
+    //       .centerHorizontally()
+    //       .centerVertically(),
+    //     hasBackdrop: true,
+    //   });
+    //   this.overlayRef.attach(new ComponentPortal(BlockUIComponent));
+    // });
   }
 
   public hide(): void {
-    this.overlayRef.detach();
-    this.overlayRef = undefined;
+    // this.overlayRef.detach();
+    // this.overlayRef = undefined;
   }
 }

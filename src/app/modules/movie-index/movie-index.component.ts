@@ -24,14 +24,17 @@ export class MovieIndexComponent implements OnInit {
   }
 
   SearchMovies(searchTerm: string) {
-    this.searchService.SearchForMovies(searchTerm).subscribe(data => {      
+    this.searchService.SearchForMovies(searchTerm).subscribe(data => {
       this.searchResponse = data.Response.toLowerCase() === 'true';
       this.SearchResult = data;
-    });
+    },
+      (catchError) => {
+        alert(catchError);
+      });
   }
 
-  get pageMovies():Movie[]{
+  get pageMovies(): Movie[] {
     return this.searchService.CurrentMoviesList;
   }
-  
+
 }

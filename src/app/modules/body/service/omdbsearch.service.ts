@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { OmdbSearchResult } from 'src/app/Models/omdb-search-result';
 import { SearchModel } from 'src/app/Models/search-model';
 import { Movie } from 'src/app/Models/movie';
@@ -11,7 +11,6 @@ import { Movie } from 'src/app/Models/movie';
 })
 export class OMDBSearchService {
   private baseUrl = `https://www.omdbapi.com?`;
-  private allMovies: Array<Movie> | undefined;
 
   searchModel: SearchModel = new SearchModel();
   MoviesSearchResult: Observable<OmdbSearchResult> | undefined;
@@ -27,13 +26,6 @@ export class OMDBSearchService {
         this.addMovies(results.Search);
       })
     );
-  }
-
-  getLastSearch(): Observable<OmdbSearchResult> {
-    if (this.MoviesSearchResult instanceof Observable) {
-      return this.MoviesSearchResult;
-    }
-    return new Observable<OmdbSearchResult>();
   }
 
   private parseUrl(searchModel: SearchModel, term: string): string {
