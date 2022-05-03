@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+/*show more details on any specipic move*/
+
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Movie } from 'src/app/Models/movie';
 
 @Component({

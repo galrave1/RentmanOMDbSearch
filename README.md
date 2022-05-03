@@ -2,8 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
 
+## install versions
+Node.js: 16.15.0
+NPM: 8.5.5
+Angular CLI: 13.3.4
+typescript: 4.6.4
+
+run `npm i`
 ## Development server
 
+after install run npm start (`package.json` configuration)
+OR
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding

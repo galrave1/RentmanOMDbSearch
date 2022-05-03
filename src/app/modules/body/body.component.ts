@@ -1,10 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { OmdbSearchResult } from 'src/app/Models/omdb-search-result';
-import { SearchModel } from 'src/app/Models/search-model';
-import { MessageService } from 'src/app/shared/services/message.service';
-import { OMDBSearchService } from './service/omdbsearch.service';
+import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
@@ -15,6 +10,5 @@ export class BodyComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('BodyComponent');
   }
 }

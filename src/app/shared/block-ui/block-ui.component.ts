@@ -1,3 +1,5 @@
+/*the component how block the UI*/
+
 import { Component, Injectable, OnInit } from '@angular/core';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { Message } from 'src/app/Models/message';

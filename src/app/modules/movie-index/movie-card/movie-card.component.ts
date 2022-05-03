@@ -1,3 +1,5 @@
+/*show a singel move from the list and adds link for more details*/
+
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from 'src/app/Models/movie';
 import { OMDBSearchService } from '../../body/service/omdbsearch.service';

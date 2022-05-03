@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+/*local moduls and components*/
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './modules/header/header.component';
@@ -14,6 +15,7 @@ import { MovieDetailsComponent } from './modules/movie-index/movie-card/movie-de
 /*interceptors*/
 import { BlockUIInterceptor } from './interceptors/block-ui/block-ui.interceptor';
 import { HttpErrorInterceptor } from './interceptors/http-error/http-error.interceptor';
+
 /*imported moduls*/
 import { BlockUIModule } from 'ng-block-ui';
 import { BlockUIComponent } from './shared/block-ui/block-ui.component';

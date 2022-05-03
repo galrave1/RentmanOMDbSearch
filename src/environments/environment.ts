@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  ApiKey:'6fae4cb1',
-  delayTime:2000
+  ApiKey:'6fae4cb1', ///www.omdbapi.com api key
+  delayTime:2000 ///for testing purposes - display the Louder
 };
 
 /*

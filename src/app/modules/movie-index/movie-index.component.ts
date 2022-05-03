@@ -1,3 +1,5 @@
+/*mail component to performs display on data and show errror*/
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OmdbSearchResult } from 'src/app/Models/omdb-search-result';

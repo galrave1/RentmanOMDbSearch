@@ -1,3 +1,5 @@
+/*service to implement `BlockUi on any HTTP request`*/
+
 import { Injectable } from '@angular/core';
 import { defer, NEVER } from 'rxjs';
 import { finalize, share } from 'rxjs/operators';

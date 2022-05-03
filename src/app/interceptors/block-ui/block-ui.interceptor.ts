@@ -1,3 +1,5 @@
+/*interceps all HTTP cals and call `MessageService`*/
+
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { delay, finalize, Observable, Subscription } from 'rxjs';

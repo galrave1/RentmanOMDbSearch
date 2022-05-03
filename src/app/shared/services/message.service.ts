@@ -1,3 +1,5 @@
+/*custom messaging service to pass data between any components */
+
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Message } from 'src/app/Models/message';
