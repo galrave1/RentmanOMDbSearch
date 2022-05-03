@@ -3,3 +3,12 @@
     height: 100%;
     display: inline-block;
 }
+h3{
+    width: 99%;
+    background-color: #ffc0cb40;
+    margin: 0 auto;
+    padding: 3vh 0;
+    border: 2px solid #ff149324;
+    text-align: center;
+    color: #ff1493;
+}
