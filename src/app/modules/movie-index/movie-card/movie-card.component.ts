@@ -25,9 +25,12 @@ export class MovieCardComponent implements OnInit {
     }
   }
   GetMovieDetails() {
-    this.searchService.GetMovieByImdbID(this.movie?.imdbID).subscribe(data => {      
+    this.searchService.GetMovieByImdbID(this.movie?.imdbID).subscribe(data => {
       this.movieDetails = data;
       this.showDetails = !this.showDetails;
     });
+  }
+  closeDetailsHander(close: boolean) {
+    this.OpenMovieDetails();
   }
 }

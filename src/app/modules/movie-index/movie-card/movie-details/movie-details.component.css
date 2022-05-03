@@ -1,52 +1,78 @@
 div {
     float: left;
+    line-height: 4vh;
+    font-size: 1.8vh;
+    min-height: 0.1vh;
+    width: 81.2%;
 }
 
-.movie-card-container {
+.movie-details-container{
     width: 100%;
-    margin: 0 auto;
-    clear: both;
-    min-height: 90vh;
+    height: 100%;
 }
 
-.movie-details-container {
-    width: 100%;
-    height: 29vh;
-    background-color: #fff;
-    display: table;
-}
-
-.movie-details-container .card-image {
+.card-image {
+    width: 16.8%;
     height: inherit;
-    width: 20vh;
+    display: flex;
 }
 
-.movie-details-container .card-image img {
-    width: inherit;
+.card-image img {
+    width: 100%;
     height: inherit;
 }
 
-.movie-details-container .card-title {
-    height: 4.5vh;
-    line-height: 4.5vh;
+.card-title {
+    height: 4vh;
     text-align: left;
-    padding: 0 0 0 1.5vh;
-    width: 27vh;
+    line-height: 4vh;
+    font-size: 1.8vh;
     font-weight: 600;
-    font-size: 1.5vh;
+    padding-left: 1vw;
 }
 
-.movie-details-container .card-spacer {
-    width: 27vh;
-    height: 20vh;
-    padding: 0 0 0 1.5vh;
-}
-
-.movie-details-container .card-bottom {
-    height: 4.5vh;
-    line-height: 4.5vh;
+.card-bottom {
+    height: 4vh;
     text-align: left;
-    padding: 0 0 0 1.5vh;
-    width: 27vh;
-    font-size: 1.5vh;
+    line-height: 4vh;
+    font-size: 1.8vh;
+    padding-left: 1vw;
+    border-top: 1px solid #f3f4f3;
+    box-shadow: 0px 4px 5px 0px rgba(153, 143, 143, 0.42);
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(153, 143, 143, 0.42);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(153, 143, 143, 0.42);
+}
+
+.card-bottom label {
+    color: #d6d8d6;
+}
+
+.card-bottom button {
+    float: right;
+    margin: 0.8vh 0.6vw 0 0;
+}
+
+.card-spacer {
+    height: 68%;
+    padding-left: 1vw;
+}
+.card-spacer div{
+    width: 99.5%;
+    line-height: 1.8vh;
+    font-size: 1.3vh;
+}
+
+.card-spacer div.actors, .card-spacer div.ratings{
+    margin-top: 0.4vh;
+}
+
+.card-spacer div label{
+    font-weight: 600;
+}
+
+.card-spacer div.ratings ul{
+    padding-inline-start: 1vw;
+}
+.card-spacer div.ratings ul li{
+    list-style-type: "- ";
 }

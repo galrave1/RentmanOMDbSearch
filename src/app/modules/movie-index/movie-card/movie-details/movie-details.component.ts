@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Movie } from 'src/app/Models/movie';
 
 @Component({
@@ -7,12 +7,13 @@ import { Movie } from 'src/app/Models/movie';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-  @Input() movie:Movie | undefined;
+  @Input() movie: Movie | undefined;
+  @Output() closeDetails: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   ngOnInit(): void {
-    console.log('MovieDetailsComponent',this.movie);
+    console.log('MovieDetailsComponent', this.movie);
   }
-  CloseMovieDetails():void{
-
+  CloseMovieDetails(): void {
+    this.closeDetails.emit(false);
   }
 }

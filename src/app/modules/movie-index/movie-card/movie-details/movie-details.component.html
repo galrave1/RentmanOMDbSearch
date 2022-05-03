@@ -6,9 +6,24 @@
     <div class="card-title">
         <label>{{movie?.Title}}</label>
     </div>
-    <div class="card-spacer"></div>
+    <div class="card-spacer">
+        <div class="plot">
+          <div><label for="Plot">Plot</label></div>
+          <div>{{movie?.Plot}}</div>
+        </div>
+        <div class="actors">
+            <div><label for="Actors">Actors</label></div>
+            <div>{{movie?.Actors}}</div>
+        </div>
+        <div class="ratings" *ngIf="movie?.Ratings && movie?.Ratings?.length">
+            <div><label for="Ratings">Ratings</label></div>
+            <ul>
+                <li *ngFor="let rating of movie?.Ratings">{{rating.Source}}:&nbsp;{{rating.Value}}</li>
+            </ul>
+        </div>
+    </div>
     <div class="card-bottom">
         <label>{{movie?.Year}}</label>
-        <input type="button" (click)="CloseMovieDetails()" value="DETAILS">
+        <button type="button" (click)="CloseMovieDetails()" class="btn">CLOSE</button>
     </div>
 </div>

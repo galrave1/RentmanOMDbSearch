@@ -7,15 +7,15 @@
         <div class="card-title">
             <label>{{movie?.Title}}</label>
         </div>
-        <div class="card-spacer"></div>
+        <div class="card-spacer">&nbsp;</div>
         <div class="card-bottom">
             <label>{{movie?.Year}}</label>
-            <input type="button" (click)="OpenMovieDetails()" value="DETAILS">
+            <button type="button" (click)="OpenMovieDetails()" class="btn">DETAILS</button>
         </div>
     </div>
 </ng-container>
 <ng-template #Details>
     <div class="details-container">
-        <app-movie-details [movie]="movieDetails"></app-movie-details>
+        <app-movie-details (closeDetails)="closeDetailsHander($event)" [movie]="movieDetails"></app-movie-details>
     </div>
 </ng-template>

@@ -1,9 +1,39 @@
-div {
-    line-height: 5vh;
-    align-items: center;
+section {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: .5vh;
+    border-top: 1px solid #bebdbe;
+    height: 6vh;
+
+    box-shadow: 0px 3px 6px -1px rgba(0, 0, 0, 0.69);
+    -webkit-box-shadow: 0px 3px 6px -1px rgba(0, 0, 0, 0.69);
+    -moz-box-shadow: 0px 3px 6px -1px rgba(0, 0, 0, 0.69);
 }
 
-div label {
-    width: 10vh;
-    height: 10vh;
+.row {
+    width: 100%;
+    float: left;
+    height: 6vh;
+    line-height: 6vh;
+}
+
+.part {
+    float: left;
+    width: 50%;
+    min-height: 0.1vh;
+}
+
+.label-rap {
+    font-weight: 600;
+    font-size: 3.3vh;
+    text-align: center;
+}
+
+label.serach{
+    margin-right: 0.5vw;
+}
+
+input{
+    border: 1px solid #f1f1f1;
+    border-radius: 1px;
 }

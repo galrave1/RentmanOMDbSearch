@@ -2,11 +2,19 @@
     <form (submit)="onSubmit()" novalidate>
         <div class="row">
             <div class="part">
-                <label for="serach">OMDB Search</label>
+                <div class="part"></div>
+                <div class="part">
+                    <label for="serach">OMDB Search</label>
+                </div>
             </div>
             <div class="part">
-                <input class="form-control" name="searchTerm" id="searchTerm" [(ngModel)]="searchTerm" placeholder="Search A Movie" required minlength="1">
-                <button type="submit">Search</button>
+                <div class="part">
+                    <label class="serach">Search A Movie</label>
+                    <input class="form-control" name="searchTerm" id="searchTerm" [(ngModel)]="searchTerm" required
+                        minlength="1">
+                    <button type="submit" class="btn">Search</button>
+                </div>
+                <div class="part"></div>
             </div>
         </div>
     </form>
