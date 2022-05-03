@@ -2,26 +2,31 @@ div {
     float: left;
 }
 
-.card-container {
-    width: 48.4%;
-    margin: 0.8vh 0.7vh;
+.movie-card-container {
+    width: 100%;
+    margin: 0 auto;
+    clear: both;
+    min-height: 90vh;
+}
+
+.movie-details-container {
+    width: 100%;
     height: 29vh;
     background-color: #fff;
     display: table;
-    border: 1px solid #d4d4d4;
 }
 
-.card-container .card-image {
+.movie-details-container .card-image {
     height: inherit;
     width: 20vh;
 }
 
-.card-container .card-image img {
+.movie-details-container .card-image img {
     width: inherit;
     height: inherit;
 }
 
-.card-container .card-title {
+.movie-details-container .card-title {
     height: 4.5vh;
     line-height: 4.5vh;
     text-align: left;
@@ -31,27 +36,17 @@ div {
     font-size: 1.5vh;
 }
 
-.card-container .card-spacer {
+.movie-details-container .card-spacer {
     width: 27vh;
     height: 20vh;
     padding: 0 0 0 1.5vh;
 }
 
-.card-container .card-bottom {
+.movie-details-container .card-bottom {
     height: 4.5vh;
     line-height: 4.5vh;
     text-align: left;
     padding: 0 0 0 1.5vh;
     width: 27vh;
     font-size: 1.5vh;
-    border-top: 1px solid #d4d4d4;
-}
-
-.details-container {
-    width: 98.6%;
-    float: left;
-    margin: 0.8vh 0.7vh;
-    height: 29vh;
-    background-color: #fff;
-    display: table;
 }

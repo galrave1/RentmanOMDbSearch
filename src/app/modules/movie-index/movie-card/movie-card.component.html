@@ -1,17 +1,21 @@
-<div class="card">
-    <img [src]="movie?.Poster" onerror="this.onerror=null; this.src='/assets/images/default-placeholder.png'" alt="{{movie?.Title}}" height="215" width="150">
-    <div class="card-title">
-        <label>{{movie?.Title}}</label>
+<ng-container *ngIf="!showDetails; else Details">
+    <div class="card-container">
+        <div class="card-image">
+            <img [src]="movie?.Poster" onerror="this.onerror=null; this.src='/assets/images/default-placeholder.png'"
+                alt="{{movie?.Title}}">
+        </div>
+        <div class="card-title">
+            <label>{{movie?.Title}}</label>
+        </div>
+        <div class="card-spacer"></div>
+        <div class="card-bottom">
+            <label>{{movie?.Year}}</label>
+            <input type="button" (click)="OpenMovieDetails()" value="DETAILS">
+        </div>
     </div>
-    <div class="card-bottom">
-        <label>{{movie?.Year}}</label>
-        <!-- <a [routerLink]="['/movie-details']" [queryParams]="{id: movie?.imdbID}" fragment="education">
-            DETAILS
-        </a> -->
-
-        <a [routerLink]="['/movie-details']">
-            DETAILS
-        </a>
-        <a routerLink="/movieDetails/356">movieDetails</a>
+</ng-container>
+<ng-template #Details>
+    <div class="details-container">
+        <app-movie-details [movie]="movieDetails"></app-movie-details>
     </div>
-</div>
+</ng-template>

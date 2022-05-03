@@ -1,5 +1,7 @@
+html,
 body {
     width: 100%;
+    height: 100%;
     float: left;
     margin: 0;
     padding: 0;
@@ -31,6 +33,6 @@ section {
 section.display-section {
     min-height: 93.4vh;
     margin: 0 0.5vh 0.3vh;
-    background-color: aliceblue;
+    background-color: #f7f7f7;
     /* overflow: auto; */
 }

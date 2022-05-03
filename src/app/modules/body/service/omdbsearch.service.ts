@@ -27,12 +27,17 @@ export class OMDBSearchService {
       })
     );
   }
+  GetMovieByImdbID(imdbID?: string): Observable<Movie> {
+    return this.http.get<Movie>(this.parseUrl(this.searchModel, undefined, imdbID));
+  }
 
-  private parseUrl(searchModel: SearchModel, term: string): string {
+  private parseUrl(searchModel: SearchModel, term?: string, id?: string): string {
     searchModel.s = term;
+    searchModel.i = id;
     let _url = this.baseUrl;
     for (const [key, value] of Object.entries(searchModel)) {
-      _url += `&${key}=${value}`;
+      if (value !== undefined && value !== null)
+        _url += `&${key}=${value}`;
     }
     return _url;
   }

@@ -1,0 +1,14 @@
+<div class="movie-details-container">
+    <div class="card-image">
+        <img [src]="movie?.Poster" onerror="this.onerror=null; this.src='/assets/images/default-placeholder.png'"
+            alt="{{movie?.Title}}">
+    </div>
+    <div class="card-title">
+        <label>{{movie?.Title}}</label>
+    </div>
+    <div class="card-spacer"></div>
+    <div class="card-bottom">
+        <label>{{movie?.Year}}</label>
+        <input type="button" (click)="CloseMovieDetails()" value="DETAILS">
+    </div>
+</div>

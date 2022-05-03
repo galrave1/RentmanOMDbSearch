@@ -14,6 +14,8 @@ export class BlockUIService {
     this.show();
     return NEVER.pipe(
       finalize(() => {
+        console.log('finalize');
+        
         this.hide();
       })
     );
@@ -25,17 +27,17 @@ export class BlockUIService {
     });
 
 
-    Promise.resolve(null).then(() => {
-      this.overlayRef = this.overlay.create({
-        positionStrategy: this.overlay
-          .position()
-          .global()
-          .centerHorizontally()
-          .centerVertically(),
-        hasBackdrop: true,
-      });
-      this.overlayRef.attach(new ComponentPortal(BlockUIComponent));
-    });
+    // Promise.resolve(null).then(() => {
+    //   this.overlayRef = this.overlay.create({
+    //     positionStrategy: this.overlay
+    //       .position()
+    //       .global()
+    //       .centerHorizontally()
+    //       .centerVertically(),
+    //     hasBackdrop: true,
+    //   });
+    //   this.overlayRef.attach(new ComponentPortal(BlockUIComponent));
+    // });
 
 
   }

@@ -12,6 +12,8 @@ export class SearchModel {
     public r: string;
     //Page number to return.
     public page: number;
+    //A valid IMDb ID
+    public i: string | undefined;
 
     constructor(key?: string, type?: string, page?: number, dataType?: string) {
         this.apikey = key || environment.ApiKey;

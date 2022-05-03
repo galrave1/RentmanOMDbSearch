@@ -10,7 +10,7 @@ import { BodyComponent } from './modules/body/body.component';
 import { MovieIndexComponent } from './modules/movie-index/movie-index.component';
 import { MovieCardComponent } from './modules/movie-index/movie-card/movie-card.component';
 import { PaginationComponent } from './shared/pagination/pagination.component';
-import { MovieDetailsComponent } from './modules/movie-details/movie-details.component';
+import { MovieDetailsComponent } from './modules/movie-index/movie-card/movie-details/movie-details.component';
 
 /*interceptors*/
 import { BlockUIInterceptor } from './interceptors/block-ui/block-ui.interceptor';
@@ -27,8 +27,8 @@ import { BlockUIComponent } from './shared/block-ui/block-ui.component';
     MovieIndexComponent,
     MovieCardComponent,
     PaginationComponent,
-    MovieDetailsComponent,
-    BlockUIComponent
+    BlockUIComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,

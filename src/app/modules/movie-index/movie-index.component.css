@@ -1,13 +1,6 @@
 .movie-card-container {
-    width: 50%;
+    width: 52%;
     margin: 0 auto;
     clear: both;
-    min-height: 90vh;
-}
-
-app-movie-card {
-    width: 50%;
-    float: left;
-    display: inline-flex;
-    margin: 1vh 0 0;
+    min-height: 100%;
 }

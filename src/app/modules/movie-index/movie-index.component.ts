@@ -27,10 +27,11 @@ export class MovieIndexComponent implements OnInit {
     this.searchService.SearchForMovies(searchTerm).subscribe(data => {
       this.searchResponse = data.Response.toLowerCase() === 'true';
       this.SearchResult = data;
-    },
-      (catchError) => {
-        console.log(catchError);
-      });
+    }
+    // ,(catchError) => {
+    //     console.log(catchError);
+    //   }
+      );
   }
 
   get pageMovies(): Movie[] {

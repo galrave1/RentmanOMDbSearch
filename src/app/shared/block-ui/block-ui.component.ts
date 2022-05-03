@@ -18,7 +18,7 @@ export class BlockUIComponent implements OnInit {
 
   ngOnInit(): void {
     this.messageService.GetMessage().subscribe(message=>{
-      console.log(message);
+      console.log('BlockUIComponent',message);
       
     });
   }
