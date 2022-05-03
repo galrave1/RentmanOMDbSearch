@@ -1,8 +1,21 @@
 <section class="display-section">
     <ng-container *ngIf="searchResponse; else showError">
         <div class="movie-card-container">
-            <app-movie-card *ngFor="let movie of pageMovies;let odd=odd; let even=even;" [movie]="movie" [ngClass]="{ odd: odd, even: even }"></app-movie-card>
+            <app-movie-card *ngFor="let movie of pageMovies | paginate
+            : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              };
+        let i = index;let odd=odd; let even=even;" [movie]="movie" [ngClass]="{ odd: odd, even: even }">
+            </app-movie-card>
         </div>
+
+        <div class="d-flex justify-content-center">
+            <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+            </pagination-controls>
+        </div>
+
     </ng-container>
     <ng-template #showError>
         <h3>{{SearchResult.Error}}</h3>

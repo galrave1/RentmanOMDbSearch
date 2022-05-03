@@ -6,13 +6,10 @@ import { Movie } from 'src/app/Models/movie';
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.css']
 })
-export class MovieDetailsComponent implements OnInit {
+export class MovieDetailsComponent {
   @Input() movie: Movie | undefined;
   @Output() closeDetails: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  ngOnInit(): void {
-    console.log('MovieDetailsComponent', this.movie);
-  }
   CloseMovieDetails(): void {
     this.closeDetails.emit(false);
   }

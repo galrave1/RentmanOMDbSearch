@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { SearchModel } from 'src/app/Models/search-model';
+import { Message } from 'src/app/Models/message';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
-  private subject: Subject<string> = new Subject<string>();
+  private subject: Subject<Message> = new Subject<Message>();
 
-  SendMessage(searchTerm: string) {
-    this.subject.next(searchTerm);
+  SendMessage(message: Message) {
+    this.subject.next(message);
   }
-  GetMessage(): Observable<string> {
+  GetMessage(): Observable<Message> {
     return this.subject.asObservable();
   }
 }

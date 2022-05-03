@@ -9,7 +9,6 @@ import { HeaderComponent } from './modules/header/header.component';
 import { BodyComponent } from './modules/body/body.component';
 import { MovieIndexComponent } from './modules/movie-index/movie-index.component';
 import { MovieCardComponent } from './modules/movie-index/movie-card/movie-card.component';
-import { PaginationComponent } from './shared/pagination/pagination.component';
 import { MovieDetailsComponent } from './modules/movie-index/movie-card/movie-details/movie-details.component';
 
 /*interceptors*/
@@ -18,6 +17,7 @@ import { HttpErrorInterceptor } from './interceptors/http-error/http-error.inter
 /*imported moduls*/
 import { BlockUIModule } from 'ng-block-ui';
 import { BlockUIComponent } from './shared/block-ui/block-ui.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,6 @@ import { BlockUIComponent } from './shared/block-ui/block-ui.component';
     BodyComponent,
     MovieIndexComponent,
     MovieCardComponent,
-    PaginationComponent,
     BlockUIComponent,
     MovieDetailsComponent
   ],
@@ -36,6 +35,7 @@ import { BlockUIComponent } from './shared/block-ui/block-ui.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxPaginationModule,
     BlockUIModule.forRoot()
   ],
   providers: [

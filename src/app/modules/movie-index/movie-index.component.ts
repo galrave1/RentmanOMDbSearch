@@ -12,6 +12,10 @@ import { Movie } from 'src/app/Models/movie';
 export class MovieIndexComponent implements OnInit {
   searchResponse: boolean = true;
   SearchResult: OmdbSearchResult = new OmdbSearchResult();
+  searchTerm: string = '';
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 6;
 
   constructor(private route: ActivatedRoute, private router: Router, private searchService: OMDBSearchService) { }
 
@@ -19,23 +23,41 @@ export class MovieIndexComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (params === undefined || params === null || params["searchTerm"] === undefined || params["searchTerm"] === null)
         this.router.navigate(['/home']);
-      this.SearchMovies(params["searchTerm"]);
+      this.searchTerm = params["searchTerm"];
+      this.SearchMovies();
     });
   }
 
-  SearchMovies(searchTerm: string) {
-    this.searchService.SearchForMovies(searchTerm).subscribe(data => {
+  SearchMovies(): void {
+    this.searchService.SearchForMovies(this.searchTerm).subscribe(data => {
       this.searchResponse = data.Response.toLowerCase() === 'true';
       this.SearchResult = data;
     }
-    // ,(catchError) => {
-    //     console.log(catchError);
-    //   }
+      // ,(catchError) => {
+      //     console.log(catchError);
+      //   }
+    );
+  }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    console.log('onTableDataChange', this.page * this.tableSize, this.count);
+    if (this.page * this.tableSize >= this.count) {
+      this.searchService.GetNextPage(this.searchTerm).subscribe(data => {
+        this.searchResponse = data.Response.toLowerCase() === 'true';
+        this.SearchResult = data;
+      }
+        // ,(catchError) => {
+        //     console.log(catchError);
+        //   }
       );
+    }
   }
 
   get pageMovies(): Movie[] {
-    return this.searchService.CurrentMoviesList;
+    let items = this.searchService.CurrentMoviesList;
+    this.count = items.length;
+    return items;
   }
 
 }
